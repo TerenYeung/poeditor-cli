@@ -32,7 +32,7 @@ $ npm install poeditor.cli -g
 
 Create a **poeditor-config.json** in the root directory, and config information as follows:
 
-```json
+```js
 {
   "apiToken": "",                     // POEditor api token
   "projectId": 270149,                // project id
