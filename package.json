@@ -1,0 +1,35 @@
+{
+  "name": "poeditor.cli",
+  "version": "1.0.0",
+  "description": "POEditor cli is the Standard Tooling for workflow of POEditor.",
+  "main": "index.js",
+  "bin": {
+    "poeditor": "./bin/index.js",
+    "poeditor.cli": "./bin/index.js"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerenYeung/poeditor-cli.git"
+  },
+  "keywords": [
+    "i18n",
+    "localization",
+    "poeditor",
+    "cli"
+  ],
+  "author": "terenyeung@gmail.com",
+  "license": "Anti 996",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "globby": "^9.2.0",
+    "ora": "^3.4.0",
+    "promise.series": "^0.2.0",
+    "querystring": "^0.2.0"
+  },
+  "engines" : {
+    "node" : ">=10.8.0"
+  }
+}
