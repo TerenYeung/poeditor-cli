@@ -10,7 +10,7 @@
 
 POEditor cli is the Standard Tooling for workflow of POEditor.
 
- ![language](https://img.shields.io/badge/language-node-gcf.svg) [![npm package](https://img.shields.io/npm/v/poeditor.cli.svg?style=flat-square)](https://www.npmjs.com/package/poeditor.cli) [![NPM downloads](http://img.shields.io/npm/dm/poeditor.cli.svg?style=flat-square)](https://www.npmjs.com/package/poeditor-cli) ![license](https://img.shields.io/badge/license-Anti%20996-99ccff.svg)
+ ![language](https://img.shields.io/badge/language-node-gcf.svg) [![npm package](https://img.shields.io/npm/v/poeditor.cli.svg?style=flat-square)](https://www.npmjs.com/package/poeditor) [![NPM downloads](http://img.shields.io/npm/dm/poeditor.cli.svg?style=flat-square)](https://www.npmjs.com/package/poeditor) ![license](https://img.shields.io/badge/license-Anti%20996-99ccff.svg)
 
 </div>
 
@@ -24,7 +24,7 @@ POEditor cli is the Standard Tooling for workflow of POEditor.
 If you haven't installed [Node.js](https://nodejs.org/en/), please install it first, [here](https://nodejs.org/en/).
 
 ```bash
-$ npm install poeditor.cli -g
+$ npm install poeditor -g
 ```
 
 
@@ -35,9 +35,9 @@ Create a **poeditor-config.json** in the root directory, and config information 
 ```js
 {
   "apiToken": "",                     // POEditor api token
-  "projectId": 270149,                // project id
-  "fileType": "android_strings",      // fileType to upload or download, supports files format (po, pot, mo, xls, csv, resw, resx, android_strings, apple_strings, xliff, properties, key_value_json, json, xmb, xtb)
-  "targetDir": "./i18n"               // directory where translated files live
+  "projectId": 0,                // project id
+  "fileType": "",      // fileType to upload or download, supports files format (po, pot, mo, xls, csv, resw, resx, android_strings, apple_strings, xliff, properties, key_value_json, json, xmb, xtb)
+  "targetDir": ""               // directory where translated files live
 }
 ```
 
