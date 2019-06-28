@@ -27,6 +27,10 @@ function toDownstreamFormat(content, config) {
     });
   } else if (type === 'json') {
     modifiedContent = JSON.stringify(content);
+  } else if (type === 'js') {
+    modifiedContent = toDownstreamJSFormat(content);
+    console.log('modifiedContent', modifiedContent);
+    // return;
   } else {
     modifiedContent = content;
   }
@@ -65,6 +69,22 @@ function toDownstreamAppleFormat(content, config) {
   });
 
   return ret;
+}
+
+function toDownstreamJSFormat(content) {
+  let modifiedContent = '';
+  let formatContent = '';
+
+  for (let item of content) {
+    formatContent += `\t// ${item.comment}\n`;
+    formatContent += `\t${ "\'" + item.term + "\'"}: ${item.definition ? "\'"+ item.definition + "\'" : "\'\'"}, \n`;
+  }
+
+  let jsStr = `
+export default {
+  ${formatContent}
+}`
+  return jsStr;
 }
 
 const transformer = {

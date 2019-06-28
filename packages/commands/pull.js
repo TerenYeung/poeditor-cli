@@ -43,26 +43,36 @@ async function getTermFiles(config) {
     fs.mkdirSync(targetDir);
   }
 
+  let tempFileType = config.fileType;
+  if (config.fileType === 'js') {
+    tempFileType = 'json'
+  }
+
   const promises = languages.map(async (lang) => {
     const payload = {
       api_token: config.apiToken,
       id: config.projectId,
       language: lang.code,
-      type: config.fileType,
+      type: tempFileType,
     };
-    const res = await api.post('/projects/export', querystring.stringify(payload));
-    const {data: {result: {url}}} = await api.post('/projects/export', querystring.stringify(payload));
 
-    const content = (await api.get(url)).data;
+    try {
+      const res = await api.post('/projects/export', querystring.stringify(payload));
+      const {data: {result: {url}}} = await api.post('/projects/export', querystring.stringify(payload));
+  
+      const content = (await api.get(url)).data;
+      const modifiedContent = transformer.toDownstreamFormat(content, {
+        type: config.fileType
+      });
+      return {
+        ...config,
+        language: lang.code,
+        content: modifiedContent,
+      };
+    } catch(err) {
+      console.log(err);
+    }
 
-    const modifiedContent = transformer.toDownstreamFormat(content, {
-      type: config.fileType
-    });
-    return {
-      ...config,
-      language: lang.code,
-      content: modifiedContent,
-    };
   });
 
   const files = await Promise.all(promises);
@@ -84,8 +94,11 @@ function writeFiles(files) {
     let suffix = file.fileType;
 
     const fileTypes = ['apple_strings', 'android_strings'];
+    const jsType = 'js'
     if (fileTypes.includes(file.fileType)) {
       suffix = fileTypeMap[file.fileType];
+    } else if (file.fileType === 'js') {
+      suffix = 'js';
     }
 
     const filePath = path.resolve(cwd, `${file.targetDir}`, `${file.language}.${suffix}`);
