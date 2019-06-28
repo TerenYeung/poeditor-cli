@@ -26,7 +26,6 @@ function pull() {
   }
 
   const config = require(configUrl);
-  // console.log(config);
 
   spinner = ora(`${chalk.green(`Pulling file(s) from poeditor`)}`).start();
   try {
@@ -52,16 +51,13 @@ async function getTermFiles(config) {
       type: config.fileType,
     };
     const res = await api.post('/projects/export', querystring.stringify(payload));
-    // console.log('res', res);
     const {data: {result: {url}}} = await api.post('/projects/export', querystring.stringify(payload));
-    // return
+
     const content = (await api.get(url)).data;
-    // console.log('content', content)
-    // @todo
+
     const modifiedContent = transformer.toDownstreamFormat(content, {
       type: config.fileType
     });
-
     return {
       ...config,
       language: lang.code,

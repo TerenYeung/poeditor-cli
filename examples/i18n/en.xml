@@ -16,5 +16,5 @@
 
 <!-- 水果页-苹果 -->
 <string name="app_fruit_apple">"%1$s apple"</string>
-<string name="app_fruit_apples">"%1$s apples"</string>
+<string name="app_fruit_apples">"%1$s apples %2$s oranges"</string>
 </resources>

@@ -19,17 +19,17 @@ function toDownstreamFormat(content, config) {
   let modifiedContent = '';
   let {type} = config;
 
-  // if (type === 'android_strings') {
-  //   modifiedContent = toDownstreamAndroidFormat(content);
-  // } else if (type === 'apple_strings') {
-  //   modifiedContent = toDownstreamAppleFormat(content, {
-  //     to: '%@'
-  //   });
-  // } else if (type === 'json') {
-  //   modifiedContent = JSON.stringify(content);
-  // }
+  if (type === 'android_strings') {
+    modifiedContent = toDownstreamAndroidFormat(content);
+  } else if (type === 'apple_strings') {
+    modifiedContent = toDownstreamAppleFormat(content, {
+      to: '%@'
+    });
+  } else if (type === 'json') {
+    modifiedContent = JSON.stringify(content);
+  }
 
-  return content;
+  return modifiedContent;
 }
 
 function toDownstreamAndroidFormat(content) {
