@@ -1,6 +1,6 @@
 {
   "name": "poeditor",
-  "version": "1.0.9",
+  "version": "1.10.0",
   "description": "POEditor cli is the Standard Tooling for workflow of POEditor.",
   "main": "index.js",
   "bin": {

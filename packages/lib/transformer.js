@@ -29,8 +29,6 @@ function toDownstreamFormat(content, config) {
     modifiedContent = JSON.stringify(content);
   } else if (type === 'js') {
     modifiedContent = toDownstreamJSFormat(content);
-    console.log('modifiedContent', modifiedContent);
-    // return;
   } else {
     modifiedContent = content;
   }
