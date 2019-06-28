@@ -27,6 +27,8 @@ function toDownstreamFormat(content, config) {
     });
   } else if (type === 'json') {
     modifiedContent = JSON.stringify(content);
+  } else {
+    modifiedContent = content;
   }
 
   return modifiedContent;
