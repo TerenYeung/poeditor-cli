@@ -61,6 +61,7 @@ async function getTermFiles(config) {
       const {data: {result: {url}}} = await api.post('/projects/export', querystring.stringify(payload));
   
       const content = (await api.get(url)).data;
+      // console.log('content', content);
       const modifiedContent = transformer.toDownstreamFormat(content, {
         type: config.fileType
       });

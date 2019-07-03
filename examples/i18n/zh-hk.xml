@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- Please don't change the name of the application -->
+<string name="app_name"></string>
+
+<!-- form_label -->
+<string name="app_login_text"></string>
+
+<!-- form_label -->
+<string name="app_login_pass"></string>
+<string name="app_home_welcome"></string>
+
+<!-- 登录页用户名 -->
+<string name="app_login_username"></string>
+
+<!-- 水果页-苹果 -->
+<string name="app_fruit_apple"></string>
+<string name="app_fruit_apples"></string>
+
+<!-- 社区页-欢迎按钮 -->
+<string name="cummnity_btn_welcome"></string>
+</resources>

@@ -42,6 +42,7 @@ function toDownstreamAndroidFormat(content) {
   const lineReg = /\n</g
   let modifiedContent = '';
   let ret = content.split(lineReg);
+
   ret = ret.map(item => {
     const reg = /\{\w+\}/g;
     const matched = item.match(reg);
@@ -52,6 +53,15 @@ function toDownstreamAndroidFormat(content) {
       });
     }
 
+    // 将文本的引号去除
+    const reg2 = />\".*\"</g;
+    const matched2 = item.match(reg2);
+
+    if (matched2) {
+      item = item.replace(matched2[0], (str) => {
+        return `>${str.slice(2, str.length - 2)}<`
+      })
+    }
 
     return item;
   });
