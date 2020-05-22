@@ -15,8 +15,9 @@ program
 program
   .command('pull')
   .description('pull translation file(s) from upstream')
-  .action(() => {
-    pull();
+  .option('-c, --configuration <type>', 'configuration file', 'poeditor-config.json')
+  .action(({configuration}) => {
+    pull(configuration);
   });
 
 program

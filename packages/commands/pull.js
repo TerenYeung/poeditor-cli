@@ -18,8 +18,9 @@ const fileTypeMap = {
 }
 let spinner = null;
 
-function pull() {
-  const configUrl = path.resolve(cwd, 'poeditor-config.json');
+function pull(configuration) {
+
+  const configUrl = path.resolve(cwd, configuration);
 
   if (!utils.isExist(configUrl)) {
     console.log(chalk.red(`\n 😭  poeditor-config.json required ~~~\n`));
