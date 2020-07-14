@@ -14,6 +14,7 @@ const cwd = process.cwd();
 const fileTypeMap = {
   'apple_strings': 'strings',
   'android_strings': 'xml',
+  'key_value_json': 'json'
 }
 let spinner = null;
 
@@ -94,12 +95,8 @@ function writeFiles(files) {
   files.forEach(file => {
     let suffix = file.fileType;
 
-    const fileTypes = ['apple_strings', 'android_strings'];
-    const jsType = 'js'
-    if (fileTypes.includes(file.fileType)) {
+    if (Object.keys(fileTypeMap).includes(file.fileType)) {
       suffix = fileTypeMap[file.fileType];
-    } else if (file.fileType === 'js') {
-      suffix = 'js';
     }
 
     const filePath = path.resolve(cwd, `${file.targetDir}`, `${file.language}.${suffix}`);

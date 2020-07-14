@@ -25,6 +25,8 @@ function toDownstreamFormat(content, config) {
     modifiedContent = toDownstreamAppleFormat(content, {
       to: '%@'
     });
+  } else if (type === 'key_value_json') {
+    modifiedContent = JSON.stringify(content);
   } else if (type === 'json') {
     modifiedContent = JSON.stringify(content);
   } else if (type === 'js') {
