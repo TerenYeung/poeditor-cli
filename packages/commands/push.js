@@ -16,6 +16,7 @@ const cwd = process.cwd();
 const fileTypeMap = {
   'apple_strings': 'strings',
   'android_strings': 'xml',
+  'key_value_json': 'json'
 }
 let spinner = null;
 
